@@ -8,14 +8,14 @@ state = {'score': 0}
 path = Turtle(visible=False)
 writer = Turtle(visible=False)
 
-#Definiendo el rango de movimiento de pacman, los fantasmas y área de manejo
+#Definiendo el rango de movimiento de pacman, los fantasmas y manejo
 aim = vector(5, 0)
 pacman = vector(-40, -80)
 ghosts = [
-    [vector(-180, 160), vector(5, 0)],
-    [vector(-180, -160), vector(0, 5)],
-    [vector(100, 160), vector(0, -5)],
-    [vector(100, -160), vector(-5, 0)],
+    [vector(-180, 160), vector(6, 0)],
+    [vector(-180, -160), vector(0, 6)],
+    [vector(100, 160), vector(0, -6)],
+    [vector(100, -160), vector(-6, 0)],
 ]
 tiles = [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -121,12 +121,12 @@ def move():
         y = 180 - (index // 20) * 20
         square(x, y)
 
-    #"Imprime" a Pacman
+    #Velocidad de Pacman
     up()
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
 
-    #Retorno de los fantasmas al ser comidos
+    #Movimiento de los fantasmas
     for point, course in ghosts:
         #Validando si se comio al punto para mover al mismo
         if valid(point + course):
@@ -141,7 +141,7 @@ def move():
             plan = choice(options)
             course.x = plan.x
             course.y = plan.y
-
+        #Velocidad de los fantasmas y su color
         up()
         goto(point.x + 10, point.y + 10)
         dot(20, 'red')
