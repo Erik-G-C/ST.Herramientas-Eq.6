@@ -143,7 +143,7 @@ def move():
             course.y = plan.y
         #Velocidad de los fantasmas y su color
         up()
-        goto(point.x + 10, point.y + 10)
+        goto(point.x + 15, point.y + 15)
         dot(20, 'red')
 
     update()
